@@ -77,7 +77,8 @@ exports.create = (api) => {
 
     return html`
       <div>
-        Hi, check your <button onclick=${goHome}> settings </button>
+        <h1>Home Page</h1>
+        <button onclick=${goToSettings}> settings </button>
       <div>
    `
   }
