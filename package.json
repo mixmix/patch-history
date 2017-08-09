@@ -1,0 +1,30 @@
+{
+  "name": "patch-history",
+  "version": "0.0.1",
+  "description": "A history module for patchcore compatable apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixmix/patch-history.git"
+  },
+  "keywords": [
+    "patchcore",
+    "depject",
+    "history"
+  ],
+  "author": "mixmix",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/mixmix/patch-history/issues"
+  },
+  "homepage": "https://github.com/mixmix/patch-history#readme",
+  "dependencies": {
+    "depject": "^4.1.0",
+    "depnest": "^1.3.0",
+    "lodash": "^4.17.4",
+    "mutant": "^3.21.2"
+  }
+}
