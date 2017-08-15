@@ -1,8 +1,6 @@
 const { Array: MutantArray, computed } = require('mutant')
+const {last, isEqual} = require('lodash')
 const nest = require('depnest')
-const last = require('lodash/last')
-const isEqual = require('lodash/isEqual')
-
 
 exports.gives = nest({
   'history.obs.location':true,
@@ -17,22 +15,17 @@ exports.create = function (api) {
     return last(history)
   })
 
-  function back () {
-    if (history().length === 1) return false
-    history.pop()
-  }
-
-  function push (newLocation) {
-    if (isEqual(newLocation, location)) return false
-    history.push(newLocation)
-  }
-
   return nest({
-    'history.sync.push': push,
-    'history.sync.back': back,
+    'history.sync.push': (newLocation) => {
+      if (isEqual(newLocation, location)) return false
+      history.push(newLocation)
+    },
+    'history.sync.back': () => {
+      if (history().length === 1) return false
+      history.pop()
+    },
     'history.obs.store': () => history,
     'history.obs.location': () => location
   })
-
 }
 
