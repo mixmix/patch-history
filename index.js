@@ -11,9 +11,7 @@ exports.gives = nest({
 
 exports.create = function (api) {
   var history = MutantArray()
-  var location = computed(history, history => {
-    return last(history)
-  })
+  var location = computed(history, history => last(history))
 
   return nest({
     'history.sync.push': (newLocation) => {
